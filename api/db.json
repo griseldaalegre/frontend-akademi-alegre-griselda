@@ -1,29 +1,28 @@
 {
-    "products": [
-      {
-        "id": 1,
-        "name": "Net",
-        "category": "laptop",
-        "price": 123,
-        "stock": 10,
-        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit"
-      },
-      {
-        "id": 2,
-        "name": "iPhone",
-        "category": "celular",
-        "price": 111,
-        "stock": 15,
-        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit"
-      },
-      {
-        "id": 3,
-        "name": "Samsung",
-        "category": "celular",
-        "price": 111,
-        "stock": 8,
-        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit"
-      }
-    ]
-  }
-  
+  "products": [
+    {
+      "id": 1,
+      "name": "Net",
+      "category": "laptop",
+      "price": 123,
+      "stock": 10,
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit"
+    },
+    {
+      "id": 2,
+      "name": "iPhone",
+      "category": "celular",
+      "price": 111,
+      "stock": 15,
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit"
+    },
+    {
+      "id": 3,
+      "name": "Samsung",
+      "category": "celular",
+      "price": 111,
+      "stock": 8,
+      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit"
+    }
+  ]
+}
