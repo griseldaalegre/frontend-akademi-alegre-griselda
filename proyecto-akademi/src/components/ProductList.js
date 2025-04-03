@@ -1,37 +1,63 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchProducts } from "../actions";
+import { fetchProducts, deleteProduct } from "../actions";
+import { Link } from "react-router-dom";
 
 class ProductstList extends Component {
   componentDidMount() {
     this.props.fetchProducts();
-    console.log(this.props.products);
+  }
+
+  renderCreateProduct() {
+    return (
+      <div className="ui container ">
+        <Link to="/add-product" className="ui button primary">
+          Agregar
+        </Link>
+      </div>
+    );
+  }
+
+  onDeleteClick() {
+    this.props.deleteProduct(this.props.id);
   }
 
   renderProducts() {
-    if (this.props && this.props.products) {
-      return this.props.products.map((product) => {
-        return (
-          <div className="ui items product-list" key={product.id}>
-            <div className="item product-item">
-              <div className="ui small image product-image"></div>
-
-              <div className="content">
-                <h2 className="header">{product.name}</h2>
-                <div className="meta">
-                  <span className="category">{product.category}</span>
-                </div>
-                <div className="description">
-                  <p>{product.description}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      });
-    } else {
-      return <div>Ocurrió un error al cargar los productos.</div>;
-    }
+    return (
+      <div className="ui container custom-container">
+        <table className="ui very basic celled table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.products.map((product) => (
+              <tr key={product.id}>
+                <td>
+                  <h4 className="ui image header">
+                    <i className="file image outline icon"></i>
+                    <div className="content">
+                      {product.name}
+                      <div className="sub header">{product.category}</div>
+                    </div>
+                  </h4>
+                </td>
+                <td>
+                  <i className="edit outline icon"></i>
+                  <i
+                    className="trash icon"
+                    onClick={() => this.props.deleteProduct(product.id)}
+                  ></i>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div className="ui called">{this.renderCreateProduct()}</div>
+      </div>
+    );
   }
 
   render() {
@@ -45,4 +71,6 @@ const mapStateToProps = (state) => {
   return { products: state.products };
 };
 
-export default connect(mapStateToProps, { fetchProducts })(ProductstList);
+export default connect(mapStateToProps, { fetchProducts, deleteProduct })(
+  ProductstList
+); //conexion con acciones de  redux
