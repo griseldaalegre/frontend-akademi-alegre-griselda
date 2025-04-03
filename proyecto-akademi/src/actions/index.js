@@ -36,7 +36,7 @@ export const fetchProducts = () => async (dispatch) => {
 
 export const fetchProduct = (id) => async (dispatch) => {
   try {
-    const response = await apiProductos.delete(`/products/${id}`);
+    const response = await apiProductos.get(`/products/${id}`);
     dispatch({
       type: FETCH_PRODUCT,
       payload: response.data,
@@ -58,9 +58,9 @@ export const deleteProduct = (id) => async (dispatch) => {
   }
 };
 
-export const editProduct = (id) => async (dispatch) => {
+export const editProduct = (id, formValues) => async (dispatch) => {
   try {
-    const response = await apiProductos.put(`/products/${id}`);
+    const response = await apiProductos.patch(`/products/${id}`, formValues);
     dispatch({
       type: EDIT_PRODUCT,
       payload: response.data,

@@ -1,22 +1,24 @@
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, useParams } from "react-router-dom";
+import { connect } from "react-redux";
 import { addProduct } from "../actions";
 
-const ProductCreate = () => {
+const ProductCreate = ({ addProduct, products }) => {
+  const { id } = useParams();
+  const productToEdit = id ? products.find((p) => p.id === id) : null;
+
+  console.log("Lista de productos:", productToEdit);
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm(); // registro y manejo del form
+  } = useForm();
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const onSubmit = (formValues) => {
-    dispatch(addProduct(formValues));
-    navigate("/"); // redirige despues de agregra
+    addProduct(formValues);
+    navigate("/");
   };
 
   return (
@@ -34,7 +36,7 @@ const ProductCreate = () => {
           placeholder="Nombre del producto"
         />
         {errors.name?.type === "required" && (
-          <p>El campo es requerido, y debe tener minimo 2 caracteres</p>
+          <p>El campo es requerido, y debe tener mínimo 2 caracteres</p>
         )}
       </div>
 
@@ -72,4 +74,9 @@ const ProductCreate = () => {
   );
 };
 
-export default ProductCreate;
+// mapeo el estado a las props
+const mapStateToProps = (state) => ({
+  products: state.products,
+});
+
+export default connect(mapStateToProps, { addProduct })(ProductCreate);

@@ -10,6 +10,10 @@ export default (state = [], action) => {
       return action.payload;
     case "DELETE_PRODUCT":
       return state.filter((product) => product.id !== action.payload);
+      case "EDIT_PRODUCT":
+        return state.map((product) =>
+          product.id === action.payload.id ? action.payload : product
+        ); 
     default:
       return state;
   }
