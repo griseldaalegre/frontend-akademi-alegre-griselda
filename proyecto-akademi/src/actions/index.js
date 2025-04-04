@@ -13,7 +13,6 @@ export const addProduct = (formValues) => async (dispatch) => {
       ...formValues,
     });
     dispatch({
-      //llamo a una accion para actualiizar estado en el reducer
       type: ADD_PRODUCT,
       payload: response.data,
     });
