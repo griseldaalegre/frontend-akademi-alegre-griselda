@@ -1,76 +1,81 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { fetchProducts, deleteProduct } from "../actions";
+import { fetchProducts, deleteProduct } from "../actions"; //importo
 import { Link } from "react-router-dom";
+import Modal from "./Modal";
 
-class ProductstList extends Component {
-  componentDidMount() {
-    this.props.fetchProducts();
-  }
+const ProductList = ({ products, fetchProducts, deleteProduct }) => {
+  //recibo prosp para no usar useDispath pq el conect lo hace auto
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
 
-  renderCreateProduct() {
-    return (
-      <div className="ui container ">
+  //modal
+  const [isOpen, setModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  return (
+    <div className="ui container custom-container">
+      <table className="ui very basic celled table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((product) => (
+            <tr key={product.id}>
+              <td>
+                <h4 className="ui image header">
+                  <i className="file image outline icon"></i>
+                  <div className="content">
+                    {product.name}
+                    <div className="sub header">{product.category}</div>
+                  </div>
+                </h4>
+              </td>
+              <td>
+                <Link to={`/products/${product.id}`}>
+                  <i className="edit outline icon"></i>
+                </Link>
+                <i
+                  className="trash icon link"
+                  onClick={() => deleteProduct(product.id)}
+                ></i>
+                <button
+                  onClick={() => {
+                    setSelectedProduct(product);
+                    setModalOpen(true);
+                  }}
+                >
+                  <i class="eye icon link"></i>
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div className="ui called">
         <Link to="/add-product" className="ui button primary">
           Agregar
         </Link>
       </div>
-    );
-  }
 
-  onDeleteClick() {
-    this.props.deleteProduct(this.props.id);
-  }
-
-  renderProducts() {
-    return (
-      <div className="ui container custom-container">
-        <table className="ui very basic celled table">
-          <thead>
-            <tr>
-              <th>Producto</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.products.map((product) => (
-              <tr key={product.id}>
-                <td>
-                  <h4 className="ui image header">
-                    <i className="file image outline icon"></i>
-                    <div className="content">
-                      {product.name}
-                      <div className="sub header">{product.category}</div>
-                    </div>
-                  </h4>
-                </td>
-                <td>
-                  <i className="edit outline icon"></i>
-                  <i
-                    className="trash icon"
-                    onClick={() => this.props.deleteProduct(product.id)}
-                  ></i>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className="ui called">{this.renderCreateProduct()}</div>
-      </div>
-    );
-  }
-
-  render() {
-    return <div>{this.renderProducts()}</div>;
-  }
-}
-
-// convierte el mi estado global en props para el componente
-const mapStateToProps = (state) => {
-  // console.log(state.products);
-  return { products: state.products };
+      <Modal
+        isOpen={isOpen}
+        closeModal={() => setModalOpen(false)}
+        product={selectedProduct}
+      />
+    </div>
+  );
 };
 
+const mapStateToProps = (state) => ({
+  products: state.products,
+});
+
 export default connect(mapStateToProps, { fetchProducts, deleteProduct })(
-  ProductstList
-); //conexion con acciones de  redux
+  //inyectao estas acciones
+  ProductList
+);

@@ -1,22 +1,45 @@
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { connect } from "react-redux";
+import React, { useEffect } from "react";
 
-import { addProduct } from "../actions";
+import { addProduct, editProduct } from "../actions";
 
-const ProductCreate = () => {
+const ProductCreate = ({ products, addProduct, editProduct }) => {
+  const { id } = useParams();
+  let productToEdit = null;
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm(); // registro y manejo del form
+    setValue,
+  } = useForm();
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  if (id) {
+    productToEdit = id ? products.find((p) => p.id === id) : null;
+  } else {
+    console.log(" no hay producto  por editar");
+  }
+  
+  useEffect(() => {
+    if (productToEdit) {
+      setValue("name", productToEdit.name);
+      setValue("category", productToEdit.category);
+      setValue("price", productToEdit.price);
+      setValue("stock", productToEdit.stock);
+      setValue("description", productToEdit.description);
+    }
+  }, [productToEdit, setValue]);
 
   const onSubmit = (formValues) => {
-    dispatch(addProduct(formValues));
-    navigate("/"); // redirige despues de agregra
+    if (productToEdit !== null) {
+      editProduct(id, formValues);
+      navigate("/");
+    } else {
+      addProduct(formValues);
+      navigate("/");
+    }
   };
 
   return (
@@ -34,7 +57,7 @@ const ProductCreate = () => {
           placeholder="Nombre del producto"
         />
         {errors.name?.type === "required" && (
-          <p>El campo es requerido, y debe tener minimo 2 caracteres</p>
+          <p>El campo es requerido, y debe tener mínimo 2 caracteres</p>
         )}
       </div>
 
@@ -66,10 +89,17 @@ const ProductCreate = () => {
       </div>
 
       <button className="ui button primary" type="submit">
-        Agregar Producto
+        {productToEdit ? "Guardar cambios" : " Agregar Producto"}
       </button>
     </form>
   );
 };
 
-export default ProductCreate;
+// mapeo el estado a las props
+const mapStateToProps = (state) => ({
+  products: state.products,
+});
+
+export default connect(mapStateToProps, { addProduct, editProduct })(
+  ProductCreate
+);
