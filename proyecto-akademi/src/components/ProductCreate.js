@@ -9,6 +9,7 @@ const ProductCreate = ({ products, addProduct, editProduct }) => {
   const { id } = useParams();
   let productToEdit = null;
   const navigate = useNavigate();
+
   const {
     register,
     formState: { errors },
@@ -21,7 +22,7 @@ const ProductCreate = ({ products, addProduct, editProduct }) => {
   } else {
     console.log(" no hay producto  por editar");
   }
-  
+
   useEffect(() => {
     if (productToEdit) {
       setValue("name", productToEdit.name);
@@ -47,7 +48,7 @@ const ProductCreate = ({ products, addProduct, editProduct }) => {
       className="ui container form custom-container"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="field">
+      <div className={`field ${errors.name ? "error" : ""}`}>
         <label>Nombre</label>
         <input
           type="text"
@@ -57,33 +58,67 @@ const ProductCreate = ({ products, addProduct, editProduct }) => {
           placeholder="Nombre del producto"
         />
         {errors.name?.type === "required" && (
-          <p>El campo es requerido, y debe tener mínimo 2 caracteres</p>
+          <p className="ui pointing red basic label">
+            El campo es requerido, y debe tener mínimo 2 caracteres
+          </p>
         )}
       </div>
 
-      <div className="field">
+      <div className={`field ${errors.category ? "error" : ""}`}>
         <label>Categoría</label>
-        <input type="text" {...register("category")} placeholder="Categoría" />
+        <input
+          type="text"
+          {...register("category", {
+            required: true,
+          })}
+          placeholder="Categoría"
+        />
+        {errors.category?.type === "required" && (
+          <p className="ui pointing red basic label">
+            El campo es requerido, y debe tener mínimo 2 caracteres
+          </p>
+        )}
       </div>
 
-      <div className="field">
+      <div className={`field ${errors.price ? "error" : ""}`}>
         <label>Precio</label>
-        <input type="number" {...register("price")} placeholder="Precio" />
+        <input
+          type="number"
+          {...register("price", {
+            required: true,
+            valueAsNumber: true,
+            min: 1,
+          })}
+          placeholder="Precio"
+        />
+        {errors.price?.type === "min" && (
+          <p className="ui pointing red basic label">El campo es requerido</p>
+        )}
       </div>
 
-      <div className="field">
+      <div className={`field ${errors.stock ? "error" : ""}`}>
         <label>Stock</label>
         <input
           type="number"
-          {...register("stock")}
+          {...register("stock", {
+            required: true,
+            min: 1,
+          })}
           placeholder="Cantidad en stock"
         />
+        {errors.stock?.type === "required" && (
+          <p className="ui pointing red basic label">
+            El campo es requerido, y el stock debe ser mayor a 0
+          </p>
+        )}
       </div>
 
-      <div className="field">
+      <div className={`field ${errors.description ? "error" : ""}`}>
         <label>Descripción</label>
         <textarea
-          {...register("description")}
+          {...register("description", {
+            required: true,
+          })}
           placeholder="Descripción del producto"
         />
       </div>

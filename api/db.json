@@ -1,28 +1,52 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Net",
+      "id": "5",
+      "name": "Lenovo ThinkPad",
       "category": "laptop",
-      "price": 123,
-      "stock": 10,
-      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit"
+      "price": 800,
+      "stock": 12,
+      "description": "Business-class laptop"
     },
     {
-      "id": 2,
-      "name": "iPhone",
+      "id": "6",
+      "name": "Xiaomi Redmi",
       "category": "celular",
-      "price": 111,
-      "stock": 15,
-      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit"
+      "price": 300,
+      "stock": 20,
+      "description": "Affordable smartphone"
     },
     {
-      "id": 3,
-      "name": "Samsung",
+      "id": "7",
+      "name": "Asus ZenBook",
+      "category": "laptop",
+      "price": 950,
+      "stock": 7,
+      "description": "Slim and powerful"
+    },
+    {
+      "id": "8",
+      "name": "Huawei P30",
       "category": "celular",
-      "price": 111,
-      "stock": 8,
-      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit"
+      "price": 450,
+      "stock": 9,
+      "description": "High-quality camera phone"
+    },
+    {
+      "id": "9",
+      "name": "Motorola Edge",
+      "category": "celular",
+      "price": 399,
+      "stock": 14,
+      "description": "Edge display and good specs"
+    },
+    {
+      "id": "10",
+      "name": "HP Pavilion",
+      "category": "laptop",
+      "price": 670,
+      "stock": 6,
+      "description": "Mid-range performance"
     }
   ]
 }
