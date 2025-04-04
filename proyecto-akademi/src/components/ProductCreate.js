@@ -1,24 +1,45 @@
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { connect } from "react-redux";
-import { addProduct } from "../actions";
+import React, { useEffect } from "react";
 
-const ProductCreate = ({ addProduct, products }) => {
+import { addProduct, editProduct } from "../actions";
+
+const ProductCreate = ({ products, addProduct, editProduct }) => {
   const { id } = useParams();
-  const productToEdit = id ? products.find((p) => p.id === id) : null;
-
-  console.log("Lista de productos:", productToEdit);
+  let productToEdit = null;
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
     handleSubmit,
+    setValue,
   } = useForm();
 
-  const navigate = useNavigate();
+  if (id) {
+    productToEdit = id ? products.find((p) => p.id === id) : null;
+  } else {
+    console.log(" no hay producto  por editar");
+  }
+  
+  useEffect(() => {
+    if (productToEdit) {
+      setValue("name", productToEdit.name);
+      setValue("category", productToEdit.category);
+      setValue("price", productToEdit.price);
+      setValue("stock", productToEdit.stock);
+      setValue("description", productToEdit.description);
+    }
+  }, [productToEdit, setValue]);
 
   const onSubmit = (formValues) => {
-    addProduct(formValues);
-    navigate("/");
+    if (productToEdit !== null) {
+      editProduct(id, formValues);
+      navigate("/");
+    } else {
+      addProduct(formValues);
+      navigate("/");
+    }
   };
 
   return (
@@ -68,7 +89,7 @@ const ProductCreate = ({ addProduct, products }) => {
       </div>
 
       <button className="ui button primary" type="submit">
-        Agregar Producto
+        {productToEdit ? "Guardar cambios" : " Agregar Producto"}
       </button>
     </form>
   );
@@ -79,4 +100,6 @@ const mapStateToProps = (state) => ({
   products: state.products,
 });
 
-export default connect(mapStateToProps, { addProduct })(ProductCreate);
+export default connect(mapStateToProps, { addProduct, editProduct })(
+  ProductCreate
+);

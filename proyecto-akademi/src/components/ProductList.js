@@ -1,12 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { fetchProducts, deleteProduct } from "../actions";
+import { fetchProducts, deleteProduct } from "../actions"; //importo
 import { Link } from "react-router-dom";
+import Modal from "./Modal";
 
 const ProductList = ({ products, fetchProducts, deleteProduct }) => {
+  //recibo prosp para no usar useDispath pq el conect lo hace auto
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
+
+  //modal
+  const [isOpen, setModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   return (
     <div className="ui container custom-container">
@@ -34,9 +40,17 @@ const ProductList = ({ products, fetchProducts, deleteProduct }) => {
                   <i className="edit outline icon"></i>
                 </Link>
                 <i
-                  className="trash icon"
+                  className="trash icon link"
                   onClick={() => deleteProduct(product.id)}
                 ></i>
+                <button
+                  onClick={() => {
+                    setSelectedProduct(product);
+                    setModalOpen(true);
+                  }}
+                >
+                  <i class="eye icon link"></i>
+                </button>
               </td>
             </tr>
           ))}
@@ -47,6 +61,12 @@ const ProductList = ({ products, fetchProducts, deleteProduct }) => {
           Agregar
         </Link>
       </div>
+
+      <Modal
+        isOpen={isOpen}
+        closeModal={() => setModalOpen(false)}
+        product={selectedProduct}
+      />
     </div>
   );
 };
@@ -56,5 +76,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { fetchProducts, deleteProduct })(
+  //inyectao estas acciones
   ProductList
 );
