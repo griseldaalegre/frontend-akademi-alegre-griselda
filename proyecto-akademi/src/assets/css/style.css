@@ -1,6 +1,8 @@
-.custom-container{
-    margin: 60px;
-    width: 60%;
+.custom-container {
+    margin: 20px;
 
 }
 
+.container-btn {
+    margin-top: 24px !important;
+}

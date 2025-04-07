@@ -1,3 +1,123 @@
+# Proyecto Entregable - Gestión de Productos Tecnológicos
+
+**Programa:** Famme Akademi - Vortex IT  
+**Tecnología:** React + Redux Clásico
+
+---
+
+## Objetivo
+
+Aplicación en **React** con **Redux Clásico** para gestionar un inventario de productos.  
+La aplicación permite:
+
+- Alta, Baja y Modificación de productos (ABM).
+- Funcionalidades: **paginación**, **búsqueda**, **filtrado** y **ordenamiento**.
+- Uso de **JSON Server** para simular una API REST.
+
+---
+
+## Tecnologías y Herramientas
+
+- React.js
+- Redux Clásico
+- React Router
+- JSON Server
+- Redux DevTools (opcional)
+
+---
+
+## Requisitos
+
+1. ABM: Alta, baja y modificación de productos.
+2. Paginación: Mostrar X productos por páginas.
+3. Filtro: Filtrar productos por categoría.
+4. Búsqueda: Buscar por nombre o categoría.
+5. Ordenamiento: Por precio o nombre.
+6. Detalle de producto: Vista individual con toda la info.
+7. Redux: Uso obligatorio de Redux Clásico.
+8. Validaciones: Formularios con validaciones (precio, stock, etc.).
+
+---
+
+## Modelo de Datos (Entidad Producto)
+
+# js
+
+{
+id: number,
+name: string,
+category: string,  
+ price: number,
+stock: number,
+description: string,
+image_url?: string  
+}
+
+## Pantallas y Funcionalidades
+
+# Vista Principal /
+
+- Lista de productos.
+- Paginación.
+- Búsqueda por nombre.
+- Filtros.
+- Ordenamiento.
+
+## Detalle/Edición de Producto /product/:id
+
+Muestra todos los atributos del producto.
+
+Botón Editar: Navega a página de formulario para modificar.
+
+Botón Guardar: Actualiza en Redux y JSON Server.
+
+Botón Cancelar: Navega a inicio.
+
+# Validaciones:
+
+El precio debe ser numérico y mayor a 0.
+
+El stock no puede ser negativo.
+
+## Crear Producto /add-product
+
+Formulario con todos los campos del modelo.
+
+Validaciones al enviar.
+
+Feedback visual: “Producto agregado correctamente”.
+
+Redirección a la vista principal.
+
+## Navbar
+
+Link a Inicio /
+
+Link a Agregar Producto /add-product
+
+## Endpoints:
+
+GET /products → Listar productos
+
+POST /products → Agregar producto
+
+DELETE /products/:id → Eliminar producto
+
+PUT /products/:id → Editar producto
+
+## Instrucciones de Instalación y Ejecución
+
+Clonar el repositorio:
+
+## Instalar dependencias:
+
+npm install
+
+## Iniciar la aplicación:
+
+npm start
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

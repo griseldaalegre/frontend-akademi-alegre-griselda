@@ -1,52 +1,460 @@
 {
   "products": [
     {
-      "id": "5",
-      "name": "Lenovo ThinkPad",
-      "category": "laptop",
-      "price": 800,
-      "stock": 12,
-      "description": "Business-class laptop"
+      "id": "2",
+      "name": "Apple iPhone 13",
+      "category": "celular",
+      "price": 999,
+      "stock": 5,
+      "description": "Latest iPhone model"
+    },
+    {
+      "id": "3",
+      "name": "Xiaomi Redmi Note 11",
+      "category": "celular",
+      "price": 250,
+      "stock": 15,
+      "description": "Affordable and reliable"
+    },
+    {
+      "id": "4",
+      "name": "Motorola G60",
+      "category": "celular",
+      "price": 299,
+      "stock": 20,
+      "description": "Big battery smartphone"
     },
     {
       "id": "6",
-      "name": "Xiaomi Redmi",
+      "name": "Oppo Reno 6",
       "category": "celular",
-      "price": 300,
-      "stock": 20,
-      "description": "Affordable smartphone"
+      "price": 450,
+      "stock": 12,
+      "description": "Mid-range device"
     },
     {
       "id": "7",
-      "name": "Asus ZenBook",
+      "name": "Dell XPS 13",
       "category": "laptop",
-      "price": 950,
-      "stock": 7,
-      "description": "Slim and powerful"
+      "price": 1200,
+      "stock": 8,
+      "description": "High-performance ultrabook"
     },
     {
       "id": "8",
-      "name": "Huawei P30",
-      "category": "celular",
-      "price": 450,
-      "stock": 9,
-      "description": "High-quality camera phone"
+      "name": "MacBook Pro M1",
+      "category": "laptop",
+      "price": 1800,
+      "stock": 6,
+      "description": "Apple's powerful laptop"
     },
     {
       "id": "9",
-      "name": "Motorola Edge",
-      "category": "celular",
-      "price": 399,
-      "stock": 14,
-      "description": "Edge display and good specs"
+      "name": "HP Envy 13",
+      "category": "laptop",
+      "price": 999,
+      "stock": 10,
+      "description": "Stylish and capable"
     },
     {
-      "id": "10",
-      "name": "HP Pavilion",
+      "id": "11",
+      "name": "Acer Swift 3",
+      "category": "laptop",
+      "price": 730,
+      "stock": 9,
+      "description": "Slim and portable"
+    },
+    {
+      "id": "12",
+      "name": "Asus VivoBook 14",
+      "category": "laptop",
+      "price": 570,
+      "stock": 7,
+      "description": "Affordable performance"
+    },
+    {
+      "id": "13",
+      "name": "iPad Air 5",
+      "category": "tablet",
+      "price": 599,
+      "stock": 10,
+      "description": "Apple's lightweight tablet"
+    },
+    {
+      "id": "14",
+      "name": "Samsung Galaxy Tab S8",
+      "category": "tablet",
+      "price": 649,
+      "stock": 8,
+      "description": "High-end Android tablet"
+    },
+    {
+      "id": "15",
+      "name": "Lenovo Tab M10",
+      "category": "tablet",
+      "price": 220,
+      "stock": 14,
+      "description": "Affordable media device"
+    },
+    {
+      "id": "16",
+      "name": "Huawei MatePad 11",
+      "category": "tablet",
+      "price": 470,
+      "stock": 6,
+      "description": "Feature-rich tablet"
+    },
+    {
+      "id": "17",
+      "name": "Xiaomi Pad 5",
+      "category": "tablet",
+      "price": 399,
+      "stock": 11,
+      "description": "Well-rounded performance"
+    },
+    {
+      "id": "18",
+      "name": "Amazon Fire HD 10",
+      "category": "tablet",
+      "price": 150,
+      "stock": 16,
+      "description": "Basic tablet experience"
+    },
+    {
+      "id": "19",
+      "name": "LG UltraGear 27",
+      "category": "monitor",
+      "price": 350,
+      "stock": 5,
+      "description": "Gaming monitor"
+    },
+    {
+      "id": "20",
+      "name": "Samsung Odyssey G7",
+      "category": "monitor",
+      "price": 600,
+      "stock": 7,
+      "description": "Curved gaming display"
+    },
+    {
+      "id": "21",
+      "name": "Dell UltraSharp",
+      "category": "monitor",
+      "price": 500,
+      "stock": 6,
+      "description": "Professional monitor"
+    },
+    {
+      "id": "22",
+      "name": "ASUS ProArt",
+      "category": "monitor",
+      "price": 700,
+      "stock": 4,
+      "description": "Color-accurate display"
+    },
+    {
+      "id": "23",
+      "name": "BenQ EX3501R",
+      "category": "monitor",
+      "price": 499,
+      "stock": 6,
+      "description": "UltraWide monitor"
+    },
+    {
+      "id": "24",
+      "name": "Acer Nitro XV272",
+      "category": "monitor",
+      "price": 289,
+      "stock": 10,
+      "description": "Fast refresh rate"
+    },
+    {
+      "id": "25",
+      "name": "Apple Watch Series 7",
+      "category": "smartwatch",
+      "price": 399,
+      "stock": 10,
+      "description": "Health and fitness tracker"
+    },
+    {
+      "id": "26",
+      "name": "Samsung Galaxy Watch 5",
+      "category": "smartwatch",
+      "price": 329,
+      "stock": 9,
+      "description": "Feature-rich smartwatch"
+    },
+    {
+      "id": "27",
+      "name": "Garmin Venu",
+      "category": "smartwatch",
+      "price": 349,
+      "stock": 5,
+      "description": "Fitness and GPS tracker"
+    },
+    {
+      "id": "28",
+      "name": "Xiaomi Mi Watch",
+      "category": "smartwatch",
+      "price": 120,
+      "stock": 14,
+      "description": "Affordable smartwatch"
+    },
+    {
+      "id": "29",
+      "name": "Fitbit Versa 3",
+      "category": "smartwatch",
+      "price": 229,
+      "stock": 11,
+      "description": "Everyday fitness tracker"
+    },
+    {
+      "id": "30",
+      "name": "Amazfit GTR 3",
+      "category": "smartwatch",
+      "price": 179,
+      "stock": 13,
+      "description": "Stylish design"
+    },
+    {
+      "id": "31",
+      "name": "Sony WH-1000XM4",
+      "category": "auriculares",
+      "price": 350,
+      "stock": 7,
+      "description": "Noise-canceling headphones"
+    },
+    {
+      "id": "32",
+      "name": "Bose QuietComfort 45",
+      "category": "auriculares",
+      "price": 329,
+      "stock": 8,
+      "description": "Premium audio quality"
+    },
+    {
+      "id": "33",
+      "name": "JBL Tune 750BTNC",
+      "category": "auriculares",
+      "price": 129,
+      "stock": 14,
+      "description": "Wireless comfort"
+    },
+    {
+      "id": "34",
+      "name": "Apple AirPods Pro",
+      "category": "auriculares",
+      "price": 249,
+      "stock": 10,
+      "description": "In-ear ANC earbuds"
+    },
+    {
+      "id": "35",
+      "name": "Samsung Galaxy Buds2",
+      "category": "auriculares",
+      "price": 149,
+      "stock": 13,
+      "description": "Compact and efficient"
+    },
+    {
+      "id": "36",
+      "name": "Anker Soundcore Life Q30",
+      "category": "auriculares",
+      "price": 99,
+      "stock": 20,
+      "description": "Great budget ANC"
+    },
+    {
+      "id": "37",
+      "name": "Realme 9 Pro",
+      "category": "celular",
+      "price": 350,
+      "stock": 15,
+      "description": "Value-packed phone"
+    },
+    {
+      "id": "38",
+      "name": "Google Pixel 6",
+      "category": "celular",
+      "price": 599,
+      "stock": 10,
+      "description": "Clean Android OS"
+    },
+    {
+      "id": "39",
+      "name": "Vivo Y33",
+      "category": "celular",
+      "price": 300,
+      "stock": 12,
+      "description": "Large battery phone"
+    },
+    {
+      "id": "40",
+      "name": "Nokia X20",
+      "category": "celular",
+      "price": 310,
+      "stock": 9,
+      "description": "Reliable build"
+    },
+    {
+      "id": "41",
+      "name": "Asus ROG Phone 5",
+      "category": "celular",
+      "price": 950,
+      "stock": 4,
+      "description": "Gaming smartphone"
+    },
+    {
+      "id": "42",
+      "name": "OnePlus Nord 2",
+      "category": "celular",
+      "price": 450,
+      "stock": 10,
+      "description": "Flagship killer"
+    },
+    {
+      "id": "43",
+      "name": "MSI Modern 15",
+      "category": "laptop",
+      "price": 800,
+      "stock": 7,
+      "description": "Modern productivity"
+    },
+    {
+      "id": "44",
+      "name": "Samsung Galaxy Book",
+      "category": "laptop",
+      "price": 870,
+      "stock": 6,
+      "description": "High-end Samsung laptop"
+    },
+    {
+      "id": "45",
+      "name": "Huawei MateBook D15",
+      "category": "laptop",
+      "price": 680,
+      "stock": 5,
+      "description": "Great for work"
+    },
+    {
+      "id": "46",
+      "name": "CHUWI HeroBook",
+      "category": "laptop",
+      "price": 300,
+      "stock": 14,
+      "description": "Affordable student option"
+    },
+    {
+      "id": "47",
+      "name": "Teclast F7 Plus",
+      "category": "laptop",
+      "price": 320,
+      "stock": 10,
+      "description": "Slim and efficient"
+    },
+    {
+      "id": "48",
+      "name": "Avita Pura",
+      "category": "laptop",
+      "price": 580,
+      "stock": 8,
+      "description": "Budget-friendly laptop"
+    },
+    {
+      "id": "49",
+      "name": "Huawei Watch GT 3",
+      "category": "smartwatch",
+      "price": 250,
+      "stock": 9,
+      "description": "Long battery life"
+    },
+    {
+      "id": "50",
+      "name": "Honor Watch GS 3",
+      "category": "smartwatch",
+      "price": 199,
+      "stock": 11,
+      "description": "Stylish and smart"
+    },
+    {
+      "id": "51",
+      "name": "TCL MoveTime",
+      "category": "smartwatch",
+      "price": 160,
+      "stock": 10,
+      "description": "Smartwatch for kids"
+    },
+    {
+      "id": "52",
+      "name": "Logitech G733",
+      "category": "auriculares",
+      "price": 130,
+      "stock": 15,
+      "description": "Wireless gaming headset"
+    },
+    {
+      "id": "53",
+      "name": "Razer Kraken X",
+      "category": "auriculares",
+      "price": 89,
+      "stock": 20,
+      "description": "Lightweight headset"
+    },
+    {
+      "id": "54",
+      "name": "iPad Mini 6",
+      "category": "tablet",
+      "price": 499,
+      "stock": 10,
+      "description": "Compact and powerful"
+    },
+    {
+      "id": "56",
+      "name": "Philips 241E1",
+      "category": "monitor",
+      "price": 179,
+      "stock": 10,
+      "description": "Affordable FHD monitor"
+    },
+    {
+      "id": "57",
+      "name": "Gigabyte M27Q",
+      "category": "monitor",
+      "price": 369,
+      "stock": 6,
+      "description": "Gaming and content creation"
+    },
+    {
+      "id": "58",
+      "name": "Asus ZenBook 14",
+      "category": "laptop",
+      "price": 940,
+      "stock": 7,
+      "description": "Portable powerhouse"
+    },
+    {
+      "id": "59",
+      "name": "HP Pavilion x360",
       "category": "laptop",
       "price": 670,
-      "stock": 6,
-      "description": "Mid-range performance"
+      "stock": 12,
+      "description": "Convertible laptop"
+    },
+    {
+      "id": "60",
+      "name": "Acer Chromebook 14",
+      "category": "laptop",
+      "price": 299,
+      "stock": 18,
+      "description": "Web-based computing"
+    },
+    {
+      "id": "d788",
+      "name": "Apple iPhone 13",
+      "category": "celular",
+      "price": 1,
+      "stock": "1",
+      "description": "utryjthegrefsz"
     }
   ]
 }
